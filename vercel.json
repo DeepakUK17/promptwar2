@@ -1,0 +1,11 @@
+{
+  "buildCommand": "cd promptwars && npm install && npm run build",
+  "outputDirectory": "promptwars/dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
