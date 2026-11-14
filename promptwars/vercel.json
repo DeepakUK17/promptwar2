@@ -1,6 +1,6 @@
 {
-  "buildCommand": "cd promptwars && npm install && npm run build",
-  "outputDirectory": "promptwars/dist",
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
   "framework": "vite",
   "rewrites": [
     {

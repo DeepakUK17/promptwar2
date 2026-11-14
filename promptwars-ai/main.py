@@ -62,7 +62,7 @@ def health_check():
     return {
         "status": "healthy",
         "service": "PromptWars AI Engine",
-        "gemini_connected": gemini_model is not None,
+        "gemini_connected": gemini_client is not None,
         "agents": [
             "OrchestratorAgent",
             "SkillAnalysisAgent",

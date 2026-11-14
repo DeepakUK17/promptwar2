@@ -1,8 +1,0 @@
-{
-  "name": "promptwars-workspace",
-  "private": true,
-  "scripts": {
-    "build": "npm --prefix promptwars run build",
-    "install": "npm --prefix promptwars install"
-  }
-}
