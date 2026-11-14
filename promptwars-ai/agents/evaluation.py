@@ -64,7 +64,7 @@ class EvaluationAgent:
 
         return EvaluationResult(
             updated_proficiency=score_percentage,
-            verified=True,
+            verified=is_proficient,
             weak_topics=weak_topics,
             adaptive_recommendation=recommendation,
             remedial_activities=remedial_activities
