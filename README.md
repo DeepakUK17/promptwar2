@@ -1,5 +1,15 @@
 # PromptWars — AI-Powered Personalized Learning & Career Intelligence Platform
 
+## 🚀 Live Deployment
+
+| Service | URL |
+|---|---|
+| **Frontend Application** | [https://promptwar2-2qoo.vercel.app/](https://promptwar2-2qoo.vercel.app/) |
+| **AI Backend API** | [https://promptwars-ai-backend.onrender.com](https://promptwars-ai-backend.onrender.com) |
+| **Backend Health Check** | [https://promptwars-ai-backend.onrender.com/health](https://promptwars-ai-backend.onrender.com/health) |
+
+---
+
 > **PromptWars Hackathon Submission** — A unified, AI-orchestrated platform that analyzes your skills, matches you to careers, generates adaptive learning roadmaps, and guides you with a real-time AI Mentor powered by Google Gemini 2.0 Flash.
 
 ---
@@ -46,8 +56,8 @@ PromptWars is a complete, full-stack AI-driven career guidance and personalized 
 | Component | Target URL / Reference |
 |---|---|
 | **GitHub Repository** | [https://github.com/DeepakUK17/promptwar2](https://github.com/DeepakUK17/promptwar2) |
-| **Frontend Application** | Deployable on Vercel (see [Vercel Deployment Guide](#-deployment--frontend-on-vercel)) |
-| **AI Orchestration Service** | Deployable on Render (see [Render Deployment Guide](#-deployment--ai-backend-on-render)) |
+| **Frontend Application** | [https://promptwar2-2qoo.vercel.app/](https://promptwar2-2qoo.vercel.app/) |
+| **AI Orchestration Service** | [https://promptwars-ai-backend.onrender.com](https://promptwars-ai-backend.onrender.com) |
 | **Dedicated Coding Lab** | [https://test-portal-sage.vercel.app](https://test-portal-sage.vercel.app) |
 | **Supabase Project** | `https://loryeipllwjmcazsjyee.supabase.co` |
 
@@ -360,7 +370,7 @@ vercel --prod
    - **Instance Type**: `Free`
 5. Navigate to the **Environment** tab and add the required environment variables:
    - `SUPABASE_URL` = `https://loryeipllwjmcazsjyee.supabase.co`
-   - `SUPABASE_SERVICE_ROLE_KEY` = `sb_secret_dvJkCSBvLv54Awq3C0RWvw_-Y-QXZIb`
+   - `SUPABASE_SERVICE_ROLE_KEY` = `your_rotated_supabase_service_role_key`
    - `GOOGLE_API_KEY` = `your_gemini_api_key`
    - `FRONTEND_ORIGIN` = `https://your-vercel-app.vercel.app`
    - `PORT` = `10000` *(Render sets this automatically; main.py reads the environment variable)*
