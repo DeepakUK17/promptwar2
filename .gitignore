@@ -1,0 +1,9 @@
+Skill-Bridge/
+Test-Portal/
+*.docx
+**/node_modules/
+**/dist/
+**/__pycache__/
+**/.venv/
+**/venv/
+**/.env
