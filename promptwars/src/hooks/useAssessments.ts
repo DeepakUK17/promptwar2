@@ -181,7 +181,7 @@ export const useSubmitAssessment = () => {
       }
 
       // 3. Trigger Evaluation Agent via AI backend
-      const aiBackendUrl = import.meta.env.VITE_AI_BACKEND_URL || "http://localhost:8000";
+      const aiBackendUrl = import.meta.env.VITE_AI_BACKEND_URL || "http://localhost:9002";
       try {
         await fetch(`${aiBackendUrl}/api/agents/evaluate`, {
           method: "POST",
@@ -281,7 +281,7 @@ export const useSyncCodingTest = () => {
       }
 
       // Notify Evaluation Agent
-      const aiBackendUrl = import.meta.env.VITE_AI_BACKEND_URL || "http://localhost:8000";
+      const aiBackendUrl = import.meta.env.VITE_AI_BACKEND_URL || "http://localhost:9002";
       try {
         await fetch(`${aiBackendUrl}/api/agents/evaluate`, {
           method: "POST",
@@ -311,3 +311,4 @@ export const useSyncCodingTest = () => {
     },
   });
 };
+

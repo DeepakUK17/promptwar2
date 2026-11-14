@@ -144,7 +144,7 @@ export const useSetTargetCareer = () => {
         .eq("status", "active");
 
       // 3. Trigger AI agent service to orchestrate roadmap generation
-      const aiBackendUrl = import.meta.env.VITE_AI_BACKEND_URL || "http://localhost:8000";
+      const aiBackendUrl = import.meta.env.VITE_AI_BACKEND_URL || "http://localhost:9002";
       try {
         await fetch(`${aiBackendUrl}/api/agents/career-selection`, {
           method: "POST",
@@ -180,3 +180,4 @@ export const useSetTargetCareer = () => {
     },
   });
 };
+

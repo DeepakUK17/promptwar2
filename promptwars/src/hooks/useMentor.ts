@@ -59,7 +59,7 @@ export const useSendMentorMessage = () => {
       });
 
       // 2. Call AI Backend
-      const aiBackendUrl = import.meta.env.VITE_AI_BACKEND_URL || "http://localhost:8000";
+      const aiBackendUrl = import.meta.env.VITE_AI_BACKEND_URL || "http://localhost:9002";
       let assistantReply = "";
 
       try {
@@ -176,3 +176,4 @@ I am monitoring your learning path across all active agents:
 
 Feel free to ask for concrete code examples, assignment explanations, or guidance on what to build for your portfolio next!`;
 }
+

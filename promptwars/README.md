@@ -31,7 +31,7 @@ flowchart TD
     end
     
     subgraph Multi-Agent AI Backend
-        Frontend -->|REST APIs| FastAPIEngine["FastAPI AI Engine (Port 8000)"]
+        Frontend -->|REST APIs| FastAPIEngine["FastAPI AI Engine (Port 9002)"]
         FastAPIEngine --> AgentOrchestrator["Agent 1: Orchestrator Agent"]
         AgentOrchestrator --> AgentSkill["Agent 2: Skill Analysis Agent"]
         AgentOrchestrator --> AgentCareer["Agent 3: Career Intelligence Agent"]
@@ -82,8 +82,8 @@ pip install -r requirements.txt
 python main.py
 ```
 
-AI API will be available at: `http://localhost:8000`  
-Interactive Swagger Docs at: `http://localhost:8000/docs`
+AI API will be available at: `http://localhost:9002`  
+Interactive Swagger Docs at: `http://localhost:9002/docs`
 
 ---
 
@@ -138,3 +138,4 @@ Follow these steps during your judging presentation:
 - Supabase anonymous key is restricted to public client operations with Row Level Security (RLS).
 - Privileged operations and LLM keys are held exclusively inside the Python FastAPI environment.
 - Deterministic scoring algorithms ensure that career readiness numbers are mathematically grounded and un-hallucinated.
+

@@ -22,9 +22,10 @@ cd promptwars-ai
 pip install -r requirements.txt
 python main.py
 ```
-Runs at: `http://localhost:8000`
+Runs at: `http://localhost:9002`
 
 ---
 
 ## 📖 Complete Documentation & Demonstration Guide
 See full architecture, database migrations, and the 10-step hackathon demo walk-through in [promptwars/README.md](file:///d:/PromptWar2/promptwars/README.md).
+

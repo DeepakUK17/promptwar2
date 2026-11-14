@@ -70,7 +70,7 @@ const LearningRoadmap = () => {
       if (!targetCareerId) throw new Error("Please select a target career first.");
 
       // Check if AI backend is running
-      const aiBackendUrl = import.meta.env.VITE_AI_BACKEND_URL || "http://localhost:8000";
+      const aiBackendUrl = import.meta.env.VITE_AI_BACKEND_URL || "http://localhost:9002";
       const res = await fetch(`${aiBackendUrl}/api/agents/career-selection`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -471,3 +471,4 @@ const LearningRoadmap = () => {
 };
 
 export default LearningRoadmap;
+
