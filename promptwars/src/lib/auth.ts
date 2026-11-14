@@ -1,8 +1,5 @@
 import { supabase } from "@/integrations/supabase/client";
 
-const SUPABASE_URL = import.meta.env.VITE_SUPABASE_URL;
-const SERVICE_KEY = import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY;
-
 export interface SignUpData {
   email: string;
   password: string;
@@ -19,47 +16,6 @@ export interface SignUpData {
 export const signUp = async (data: SignUpData) => {
   const { email, password, ...metadata } = data;
 
-  // Use Admin REST API directly (service key allows this from browser)
-  // This bypasses email confirmation requirement
-  try {
-    const res = await fetch(`${SUPABASE_URL}/auth/v1/admin/users`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "apikey": SERVICE_KEY,
-        "Authorization": `Bearer ${SERVICE_KEY}`,
-      },
-      body: JSON.stringify({
-        email,
-        password,
-        email_confirm: true,
-        user_metadata: {
-          ...metadata,
-          role: metadata.role || "learner",
-        },
-      }),
-    });
-
-    const json = await res.json();
-
-    if (!res.ok) {
-      // If admin API fails, fall through to standard signUp
-      throw new Error(json.message || json.error || "Admin API failed");
-    }
-
-    // Admin user created — now sign in to establish browser session
-    const { data: signInData, error: signInErr } = await supabase.auth.signInWithPassword({
-      email,
-      password,
-    });
-    if (signInErr) throw signInErr;
-    return signInData;
-
-  } catch (adminError) {
-    console.warn("Admin signUp failed, falling back to standard signUp:", adminError);
-  }
-
-  // Fallback: standard signUp (requires email confirmation disabled in Supabase dashboard)
   const { data: authData, error } = await supabase.auth.signUp({
     email,
     password,
@@ -73,11 +29,23 @@ export const signUp = async (data: SignUpData) => {
 
   if (error) throw error;
 
-  // Try immediate sign-in (works if email confirmation is disabled)
+  // If email confirmation is disabled in Supabase dashboard,
+  // the session is returned immediately — sign in to ensure session exists
+  if (authData.session) {
+    return authData;
+  }
+
+  // Email confirmation is ON — try signing in anyway (works if confirm is disabled)
   try {
-    await supabase.auth.signInWithPassword({ email, password });
+    const { data: signInData, error: signInErr } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+    if (!signInErr && signInData.session) {
+      return signInData;
+    }
   } catch (_e) {
-    // Will need email confirmation
+    // ignore
   }
 
   return authData;
